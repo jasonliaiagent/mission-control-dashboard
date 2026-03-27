@@ -1,0 +1,48 @@
+[
+  {
+    "id": "default",
+    "name": "Mission Control",
+    "status": "active",
+    "model": "claude-sonnet-4-5",
+    "description": "Main coordinator agent",
+    "lastActive": "2026-03-27T04:00:22.434538Z"
+  },
+  {
+    "id": "trader",
+    "name": "ICT OTE v2.2",
+    "status": "active",
+    "model": "claude-sonnet-4-5",
+    "description": "ICT Optimal Trade Entry strategy with relaxed filters",
+    "strategy": {
+      "version": "2.2",
+      "deployedDate": "2026-03-14",
+      "timeframe": "4H trend filter, 15m execution",
+      "risk": "2% per trade",
+      "leverage": "15x",
+      "stopLoss": "Beyond swing (1.1 fib)",
+      "takeProfit": "TP1: 0.25 fib (50% exit), TP2: 0.0 fib (remaining)",
+      "maxPositions": 1,
+      "features": [
+        "ICT OTE zones (0.618-0.786 fib)",
+        "Approach entry (30% buffer)",
+        "FVG validation (anywhere in impulse)",
+        "Displacement candle detection",
+        "6-candle swing detection",
+        "RR minimum: 2.0",
+        "Trailing stop after TP1 (0.5R)"
+      ],
+      "entries": "In-zone or approaching (30% buffer)",
+      "expectedTrades": "~1-2/day",
+      "expectedWR": "50%+",
+      "tradeManagement": "50% at TP1, trail remaining"
+    },
+    "performance": {
+      "todayTrades": 0,
+      "todayWins": 0,
+      "todayLosses": 0,
+      "todayPnL": 0,
+      "currentPosition": false
+    },
+    "lastActive": "2026-03-27T04:00:22.434553Z"
+  }
+]

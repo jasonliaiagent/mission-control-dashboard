@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Hyperliquid",
+    "type": "exchange",
+    "status": "connected",
+    "balance": 179.79,
+    "positions": 0,
+    "lastCheck": "2026-03-27T04:00:22.433292Z"
+  },
+  {
+    "name": "Binance",
+    "type": "data",
+    "status": "connected",
+    "description": "Market data feed",
+    "lastCheck": "2026-03-27T04:00:22.433312Z"
+  },
+  {
+    "name": "Telegram",
+    "type": "notification",
+    "status": "connected",
+    "description": "Direct message delivery",
+    "lastCheck": "2026-03-27T04:00:22.433317Z"
+  }
+]

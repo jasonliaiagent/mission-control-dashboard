@@ -1,0 +1,17 @@
+{
+  "v2": {
+    "trades": 8,
+    "wins": 5,
+    "losses": 3,
+    "win_rate": 62.5,
+    "total_pnl": 32.74
+  },
+  "v3": {
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": 0,
+    "total_pnl": 0
+  },
+  "last_updated": "2026-03-27T11:15:54.425446"
+}

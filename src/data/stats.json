@@ -1,0 +1,31 @@
+{
+  "today": {
+    "date": "2026-03-27",
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "pnl": 0,
+    "winRate": 0,
+    "startingBalance": 179.79,
+    "currentBalance": 179.79,
+    "dailyReturn": 0.0
+  },
+  "allTime": {
+    "totalTrades": 13,
+    "wins": 5,
+    "losses": 8,
+    "totalPnL": -12.43,
+    "winRate": 38.5,
+    "startingBalance": 190.4,
+    "currentBalance": 179.79,
+    "totalReturn": -5.57
+  },
+  "currentStrategy": {
+    "name": "ICT OTE v2.2",
+    "trades": 0,
+    "wins": 0,
+    "pnl": 0,
+    "winRate": 0
+  },
+  "lastUpdated": "2026-03-27T04:00:22.149740Z"
+}
