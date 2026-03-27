@@ -5,20 +5,20 @@
     "status": "connected",
     "balance": 179.79,
     "positions": 0,
-    "lastCheck": "2026-03-27T04:00:22.433292Z"
+    "lastCheck": "2026-03-20T13:50:58.674088Z"
   },
   {
     "name": "Binance",
     "type": "data",
     "status": "connected",
     "description": "Market data feed",
-    "lastCheck": "2026-03-27T04:00:22.433312Z"
+    "lastCheck": "2026-03-20T13:50:58.674107Z"
   },
   {
     "name": "Telegram",
     "type": "notification",
     "status": "connected",
     "description": "Direct message delivery",
-    "lastCheck": "2026-03-27T04:00:22.433317Z"
+    "lastCheck": "2026-03-20T13:50:58.674112Z"
   }
 ]
