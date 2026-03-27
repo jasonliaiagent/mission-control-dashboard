@@ -25,8 +25,11 @@ export default function Navigation() {
               <Link href="/risk" className="px-4 py-2 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-gray-800">
                 🛡️ Risk
               </Link>
-              <Link href="/strategy-testing" className="px-4 py-2 rounded-lg transition-colors bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500">
-                🔬 Strategy Testing (+ Paper Trading)
+              <Link href="/strategy-testing" className="px-4 py-2 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-gray-800">
+                🔬 Strategy Testing
+              </Link>
+              <Link href="/v3-test" className="px-4 py-2 rounded-lg transition-colors bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-500 hover:to-purple-500">
+                📊 V3 Test (Live)
               </Link>
             </div>
           </div>

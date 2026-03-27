@@ -5,7 +5,7 @@
     "status": "active",
     "model": "claude-sonnet-4-5",
     "description": "Main coordinator agent",
-    "lastActive": "2026-03-20T13:50:58.676465Z"
+    "lastActive": "2026-03-27T04:30:09.249371Z"
   },
   {
     "id": "trader",
@@ -43,6 +43,6 @@
       "todayPnL": 0,
       "currentPosition": false
     },
-    "lastActive": "2026-03-20T13:50:58.676480Z"
+    "lastActive": "2026-03-27T04:30:09.249384Z"
   }
 ]

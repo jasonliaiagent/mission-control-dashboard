@@ -40,8 +40,8 @@ export default function V3TestPage() {
   const loadData = async () => {
     try {
       const [comparisonRes, tradesRes] = await Promise.all([
-        fetch('/src/data/paper_comparison.json'),
-        fetch('/src/data/paper_trades.json')
+        fetch('/data/paper_comparison.json'),
+        fetch('/data/paper_trades.json')
       ]);
 
       if (comparisonRes.ok && tradesRes.ok) {
