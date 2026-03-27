@@ -36,20 +36,26 @@ interface Trade {
 export default function V3TestPage() {
   const [stats, setStats] = useState<ComparisonStats | null>(null);
   const [trades, setTrades] = useState<Trade[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const loadData = async () => {
     try {
+      // Use API route instead of direct file access
       const [comparisonRes, tradesRes] = await Promise.all([
-        fetch('/data/paper_comparison.json'),
-        fetch('/data/paper_trades.json')
+        fetch('/api/paper-data?type=comparison'),
+        fetch('/api/paper-data?type=trades')
       ]);
 
       if (comparisonRes.ok && tradesRes.ok) {
         setStats(await comparisonRes.json());
         setTrades(await tradesRes.json());
+        setError(null);
+      } else {
+        setError('Failed to load data from API');
       }
     } catch (err) {
       console.error('Failed to load data:', err);
+      setError('Network error - check console');
     }
   };
 
@@ -58,6 +64,14 @@ export default function V3TestPage() {
     const interval = setInterval(loadData, 30000); // Refresh every 30s
     return () => clearInterval(interval);
   }, []);
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-950 text-white p-8 flex items-center justify-center">
+        <div className="text-red-400">Error: {error}</div>
+      </div>
+    );
+  }
 
   if (!stats) {
     return (
@@ -118,65 +132,73 @@ export default function V3TestPage() {
                 </tr>
               </thead>
               <tbody>
-                {trades.map((trade) => (
-                  <tr
-                    key={trade.id}
-                    className="border-b border-gray-800 hover:bg-gray-800/50"
-                  >
-                    <td className="px-4 py-3 text-sm">
-                      {new Date(trade.timestamp).toLocaleString()}
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          trade.version === 'v3'
-                            ? 'bg-purple-500/20 text-purple-300'
-                            : 'bg-gray-700 text-gray-400'
-                        }`}
-                      >
-                        {trade.version.toUpperCase()}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-3 py-1 rounded text-xs font-semibold ${
-                          trade.direction === 'LONG'
-                            ? 'bg-green-500/20 text-green-400'
-                            : 'bg-red-500/20 text-red-400'
-                        }`}
-                      >
-                        {trade.direction}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-right text-sm">
-                      ${trade.entry.toFixed(2)}
-                    </td>
-                    <td className="px-4 py-3 text-right text-sm">
-                      ${trade.exit.toFixed(2)}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      <span
-                        className={`font-semibold ${
-                          trade.pnl > 0
-                            ? 'text-green-400'
-                            : trade.pnl < 0
-                            ? 'text-red-400'
-                            : 'text-gray-400'
-                        }`}
-                      >
-                        ${trade.pnl.toFixed(2)}
-                      </span>
-                      {trade.partial_tp && (
-                        <span className="ml-2 px-2 py-0.5 bg-yellow-500/20 text-yellow-400 rounded text-xs">
-                          PARTIAL
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-gray-400">
-                      {trade.exit_reason}
+                {trades.length === 0 ? (
+                  <tr>
+                    <td colSpan={7} className="px-4 py-8 text-center text-gray-500">
+                      No trades yet
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  trades.map((trade) => (
+                    <tr
+                      key={trade.id}
+                      className="border-b border-gray-800 hover:bg-gray-800/50"
+                    >
+                      <td className="px-4 py-3 text-sm">
+                        {new Date(trade.timestamp).toLocaleString()}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            trade.version === 'v3'
+                              ? 'bg-purple-500/20 text-purple-300'
+                              : 'bg-gray-700 text-gray-400'
+                          }`}
+                        >
+                          {trade.version.toUpperCase()}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`px-3 py-1 rounded text-xs font-semibold ${
+                            trade.direction === 'LONG'
+                              ? 'bg-green-500/20 text-green-400'
+                              : 'bg-red-500/20 text-red-400'
+                          }`}
+                        >
+                          {trade.direction}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-right text-sm">
+                        ${trade.entry.toFixed(2)}
+                      </td>
+                      <td className="px-4 py-3 text-right text-sm">
+                        ${trade.exit.toFixed(2)}
+                      </td>
+                      <td className="px-4 py-3 text-right">
+                        <span
+                          className={`font-semibold ${
+                            trade.pnl > 0
+                              ? 'text-green-400'
+                              : trade.pnl < 0
+                              ? 'text-red-400'
+                              : 'text-gray-400'
+                          }`}
+                        >
+                          ${trade.pnl.toFixed(2)}
+                        </span>
+                        {trade.partial_tp && (
+                          <span className="ml-2 px-2 py-0.5 bg-yellow-500/20 text-yellow-400 rounded text-xs">
+                            PARTIAL
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-400">
+                        {trade.exit_reason}
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
