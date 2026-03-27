@@ -1,5 +1,20 @@
 [
   {
+    "id": 20,
+    "timestamp": "2026-03-27T04:43:05.838013+00:00",
+    "coin": "BTC",
+    "direction": "LONG",
+    "entry": 69000.0,
+    "exit": 69500.0,
+    "pnl": 2.5,
+    "r_multiple": null,
+    "exit_reason": "TEST TRADE - V3 Demo Exit (delete after verification)",
+    "duration_min": 0,
+    "version": "v3",
+    "is_paper": true,
+    "partial_tp": false
+  },
+  {
     "id": 16,
     "timestamp": "2026-03-25T02:42:17.31933+00:00",
     "coin": "BTC",
