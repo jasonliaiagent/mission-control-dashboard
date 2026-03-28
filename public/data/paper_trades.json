@@ -1,5 +1,20 @@
 [
   {
+    "id": 24,
+    "timestamp": "2026-03-28T16:00:05.191448+00:00",
+    "coin": "BTC",
+    "direction": "SHORT",
+    "entry": 67001.33,
+    "exit": 67030.24,
+    "pnl": -1.524375342607152,
+    "r_multiple": null,
+    "exit_reason": "No signal (K=74.9, D=73.8)",
+    "duration_min": 0,
+    "version": "v3",
+    "is_paper": true,
+    "partial_tp": false
+  },
+  {
     "id": 23,
     "timestamp": "2026-03-28T12:20:04.14698+00:00",
     "coin": "BTC",
