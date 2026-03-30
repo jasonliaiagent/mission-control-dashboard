@@ -7,11 +7,11 @@
     "total_pnl": 32.74
   },
   "v3": {
-    "trades": 6,
+    "trades": 7,
     "wins": 2,
-    "losses": 4,
-    "win_rate": 33.3,
-    "total_pnl": -9.83
+    "losses": 5,
+    "win_rate": 28.6,
+    "total_pnl": -14.32
   },
-  "last_updated": "2026-03-30T14:57:30.585960"
+  "last_updated": "2026-03-30T15:02:27.856600"
 }
